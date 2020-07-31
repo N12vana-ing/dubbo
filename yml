@@ -1,0 +1,37 @@
+server:
+  port: 9090
+swagger:
+  enable: true
+
+dubbo:
+  application:
+    name: sunny-consumer
+  registry:
+    address: 192.168.20.95:2181
+    protocol: zookeeper
+    check: false
+  monitor:
+    protocol: register
+  consumer:
+    check: false
+    timeout: 3000
+
+
+dubbo:
+  application:
+    name: provider1
+  registry:
+    address: 192.168.20.95:2181
+    protocol: zookeeper
+    check: false
+  protocol:
+    name: dubbo
+    port: 30004
+  monitor:
+    protocol: register
+  consumer:
+    check: false
+    timeout: 3000
+
+server:
+  port: 9091
